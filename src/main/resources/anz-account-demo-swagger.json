@@ -1,0 +1,87 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "ANZ account demo",
+    "description": "ANZ account demo",
+    "version": "0.1"
+  },
+  "host": "localhost:8080",
+  "basePath": "/anz/v1/account-services",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/transactions/{accountNumber}": {
+      "get": {
+        "description": "Returns a list of transactions for the given account number",
+        "responses": {
+          "200": {
+            "description": "The standard HTTP response representing success when the resource exists. The details of the resource is in the entity of the response.",
+			"examples": {
+                  "0": {
+                    "value": "[{\"accountNumber\":321143048,\"accountName\":\"AUCurrent433\",\"valueDate\":\"Apr. 07,2022\",\"currency\":\"AUD\",\"debitAmount\":10000.00,\"creditAmount\":null,\"debitCredit\":\"Debit\",\"transactionNarrative\":\"\"},{\"accountNumber\":321143048,\"accountName\":\"AUCurrent433\",\"valueDate\":\"Apr. 07,2022\",\"currency\":\"AUD\",\"debitAmount\":null,\"creditAmount\":500.00,\"debitCredit\":\"Credit\",\"transactionNarrative\":\"\"}]"
+                  }
+            }
+          }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "Should be \"application/json\".",
+            "required": true,
+            "type": "string"
+          },{
+            "name": "accountNumber",
+            "in": "path",
+            "description": "The account identifier",
+            "required": true,
+            "type": "integer"
+          }
+		]
+      },
+    },
+    "/accounts": {
+      "get": {
+        "description": "Returns a list of accounts",
+        "responses": {
+          "200": {
+            "description": "Returns a list of accounts",
+            "examples": {
+                  "0": {
+                    "value": "[{\"accountNumber\":321143048,\"accountName\":\"AUCurrent433\",\"accountType\":\"Current\",\"balanceDate\":\"08/11/2018\",\"currency\":\"AUD\",\"openingAvailableBalance\":38010.62},{\"accountNumber\":347786244,\"accountName\":\"SGCurrent166\",\"accountType\":\"Current\",\"balanceDate\":\"08/11/2018\",\"currency\":\"SGD\",\"openingAvailableBalance\":50664.65},{\"accountNumber\":585309209,\"accountName\":\"SGSavings726\",\"accountType\":\"Savings\",\"balanceDate\":\"08/11/2018\",\"currency\":\"SGD\",\"openingAvailableBalance\":84327.51},{\"accountNumber\":791066619,\"accountName\":\"AUSavings933\",\"accountType\":\"Savings\",\"balanceDate\":\"08/11/2018\",\"currency\":\"AUD\",\"openingAvailableBalance\":88005.93}]"
+                }
+            }
+          }
+        },
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "Should be \"application/json\".",
+            "required": true,
+            "type": "string"
+          }
+		]
+      },
+    }
+  }
+}
