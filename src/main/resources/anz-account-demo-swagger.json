@@ -51,7 +51,7 @@
             "type": "integer"
           }
 		]
-      },
+      }
     },
     "/accounts": {
       "get": {
@@ -81,7 +81,7 @@
             "type": "string"
           }
 		]
-      },
+      }
     }
   }
 }
